@@ -4,8 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ONCE, ONE'S BY JOSUN HOTEL</title>
+    <!-- 세련된 폰트 적용: 고급스러운 명조체(제목용)와 깔끔한 고딕체(본문용) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;700&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
+    
     <style>
-        /* 브랜드 톤앤매너 적용 */
+        /* 브랜드 톤앤매너 적용[cite: 1] */
         :root {
             --emerald-green: #044A3A;
             --champagne-gold: #D4AF37;
@@ -19,27 +24,50 @@
             background-color: var(--emerald-green);
             color: var(--white);
             overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Noto Serif KR', serif; /* 제목에 세련된 명조체 적용 */
+            font-weight: 700;
         }
 
         header {
             text-align: center;
-            padding: 100px 20px;
-            background: linear-gradient(rgba(4, 74, 58, 0.8), rgba(4, 74, 58, 0.9)), url('https://via.placeholder.com/1920x1080/2C1E16/D4AF37?text=Luxury+Lounge') center/cover;
+            padding: 80px 20px;
+            background: linear-gradient(rgba(4, 74, 58, 0.85), rgba(4, 74, 58, 0.95)), url('https://via.placeholder.com/1920x1080/2C1E16/D4AF37?text=Luxury+Lounge') center/cover;
         }
 
         h1 {
             color: var(--champagne-gold);
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 10px;
+            letter-spacing: -1px;
         }
 
         .subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
+            font-size: 1.4rem;
+            margin-bottom: 40px;
             font-weight: 300;
+            opacity: 0.9;
         }
 
-        /* 비디오 섹션: 혼자 호텔 가면 겪는 흔한 현실[cite: 3] */
+        /* 숏폼 비디오 스타일링[cite: 3] */
+        .header-video-wrapper {
+            margin: 0 auto 30px auto;
+            max-width: 300px; /* 숏폼 세로 비율(9:16)에 맞춘 최적화[cite: 1] */
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 2px solid var(--champagne-gold);
+        }
+
+        .header-video-wrapper video {
+            width: 100%;
+            display: block;
+        }
+
+        /* 비디오 섹션 (텍스트 중심) */
         .video-section {
             padding: 60px 20px;
             text-align: center;
@@ -48,10 +76,16 @@
 
         .video-section h2 {
             color: var(--champagne-gold);
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            font-size: 2rem;
         }
 
-        /* 듀얼 트랙 인터랙티브 섹션 */
+        .video-section p {
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+
+        /* 듀얼 트랙 인터랙티브 섹션[cite: 1, 2] */
         .track-section {
             padding: 80px 20px;
             text-align: center;
@@ -66,41 +100,51 @@
 
         .track-btn {
             background-color: transparent;
-            border: 2px solid var(--champagne-gold);
+            border: 1px solid var(--champagne-gold);
             color: var(--champagne-gold);
-            padding: 15px 30px;
-            font-size: 1.2rem;
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            font-family: 'Noto Sans KR', sans-serif;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
             border-radius: 30px;
+            font-weight: 400;
         }
 
         .track-btn.active, .track-btn:hover {
             background-color: var(--champagne-gold);
             color: var(--emerald-green);
-            font-weight: bold;
+            font-weight: 500;
         }
 
         .track-content {
             display: none;
             max-width: 800px;
             margin: 0 auto;
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 40px;
-            border-radius: 15px;
-            border: 1px solid var(--champagne-gold);
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 50px 40px;
+            border-radius: 2px;
+            border-top: 3px solid var(--champagne-gold);
         }
 
         .track-content.active {
             display: block;
-            animation: fadeIn 0.5s;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .track-content ul {
+            list-style: none;
+            padding: 0;
+            line-height: 2.2;
+            font-size: 1.05rem;
+            font-weight: 300;
         }
 
         /* 앱 소개 섹션[cite: 1, 2] */
         .app-section {
             background-color: var(--white);
             color: var(--dark-wood);
-            padding: 80px 20px;
+            padding: 100px 20px;
             text-align: center;
         }
 
@@ -108,21 +152,22 @@
             display: inline-block;
             background-color: var(--emerald-green);
             color: var(--champagne-gold);
-            padding: 20px 40px;
+            padding: 18px 45px;
             text-decoration: none;
-            font-size: 1.2rem;
-            font-weight: bold;
-            border-radius: 5px;
-            margin-top: 30px;
-            transition: transform 0.3s;
+            font-size: 1.1rem;
+            font-weight: 500;
+            border-radius: 3px;
+            margin-top: 40px;
+            transition: transform 0.3s, background-color 0.3s;
         }
 
         .cta-button:hover {
-            transform: scale(1.05);
+            transform: translateY(-3px);
+            background-color: #03362a;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
         }
     </style>
@@ -133,10 +178,16 @@
     <header>
         <h1>혼자인데, 이렇게 대접받아도 되나요?</h1> <!--[cite: 1] -->
         <p class="subtitle">오직 한 사람만을 위한 5성급 럭셔리 케어, ONCE, ONE'S</p> <!--[cite: 1] -->
-        <p>바쁜 일상, 나에게, 쉼을.</p> <!--[cite: 3] -->
+        
+        <!-- 동영상 삽입: 제목 바로 아래에서 자동 재생[cite: 3] -->
+        <div class="header-video-wrapper">
+            <video src="3조 원스.mp4" autoplay loop muted playsinline></video> <!--[cite: 3] -->
+        </div>
+
+        <p style="font-family: 'Noto Serif KR', serif; font-size: 1.2rem; margin-top: 20px;">바쁜 일상, 나에게, 쉼을.</p> <!--[cite: 3] -->
     </header>
 
-    <!-- 문제 제기 (영상 콘셉트) -->
+    <!-- 문제 제기 (영상 메시지 텍스트화) -->
     <section class="video-section">
         <h2>혼자 호텔 가면 겪는 흔한 현실</h2> <!--[cite: 3] -->
         <p>"아무도 날 안 건드렸으면 좋겠는데... 혹시 나와 결이 맞는 특별한 사람을 만날 수 있을까?"</p> <!--[cite: 2] -->
@@ -145,7 +196,7 @@
 
     <!-- 해결책: 듀얼 트랙 시스템 -->
     <section class="track-section">
-        <h2 style="color: var(--champagne-gold);">당신의 마음은 어떤가요?</h2> <!--[cite: 2] -->
+        <h2 style="color: var(--champagne-gold); margin-bottom: 30px;">당신의 마음은 어떤가요?</h2> <!--[cite: 2] -->
         <div class="track-buttons">
             <button class="track-btn active" onclick="showTrack('A')">🌙 혼자 있고 싶어요</button> <!--[cite: 2] -->
             <button class="track-btn" onclick="showTrack('B')">🥂 새로운 사람을 만나고 싶어요</button> <!--[cite: 2] -->
@@ -154,8 +205,8 @@
         <!-- Track A -->
         <div id="trackA" class="track-content active">
             <h3 style="color: var(--champagne-gold); font-size: 1.8rem;">TRACK A : COMPLETE PRIVACY</h3> <!--[cite: 1] -->
-            <p>눈치 볼 필요 없이 완벽하게 누리는 1인 럭셔리</p> <!--[cite: 1] -->
-            <ul style="list-style: none; padding: 0; line-height: 2;">
+            <p style="margin-bottom: 20px; font-weight: 400;">눈치 볼 필요 없이 완벽하게 누리는 1인 럭셔리</p> <!--[cite: 1] -->
+            <ul>
                 <li>✓ 인룸 다이닝 (1인용 고메 테이스팅 메뉴)</li> <!--[cite: 1] -->
                 <li>✓ 로봇 룸서비스 및 ASMR 서비스</li> <!--[cite: 2] -->
                 <li>✓ 완벽한 프라이빗 라운지 단독 이용권</li> <!--[cite: 1] -->
@@ -165,8 +216,8 @@
         <!-- Track B -->
         <div id="trackB" class="track-content">
             <h3 style="color: var(--champagne-gold); font-size: 1.8rem;">TRACK B : SOFT CONNECTION</h3> <!--[cite: 1] -->
-            <p>어색한 대화 없는 고품격 취향 살롱</p> <!--[cite: 1] -->
-            <ul style="list-style: none; padding: 0; line-height: 2;">
+            <p style="margin-bottom: 20px; font-weight: 400;">어색한 대화 없는 고품격 취향 살롱</p> <!--[cite: 1] -->
+            <ul>
                 <li>✓ 프라이빗 와인 테이스팅 클래스 참여</li> <!--[cite: 1] -->
                 <li>✓ 취향 기반 자연스러운 소셜 다이닝</li> <!--[cite: 1] -->
                 <li>✓ 24시간 소개팅 및 B2B 제휴 매칭 서비스</li> <!--[cite: 2] -->
@@ -176,23 +227,19 @@
 
     <!-- 앱 큐레이션 및 CTA 섹션 -->
     <section class="app-section">
-        <h2 style="color: var(--emerald-green);">귀찮은 건 호텔이 다 해줄게, 넌 즐기기만 해</h2> <!--[cite: 1] -->
-        <p>탐색 피로도 제로(0), 내 상황과 취향에 맞춘 원스톱 AI 컨시어지 <strong>'JOSUN ONE'S'</strong></p> <!--[cite: 1, 2] -->
+        <h2 style="color: var(--emerald-green); margin-bottom: 20px;">귀찮은 건 호텔이 다 해줄게, 넌 즐기기만 해</h2> <!--[cite: 1] -->
+        <p style="font-size: 1.1rem;">탐색 피로도 제로(0), 내 상황과 취향에 맞춘 원스톱 AI 컨시어지 <strong>'JOSUN ONE'S'</strong></p> <!--[cite: 1, 2] -->
         
-        <br>
-        <h3 style="color: var(--emerald-green);">한 번 와도, 혼자 와도 우리 사람</h3> <!--[cite: 1, 2] -->
-        <p>지금 사전 설문조사에 참여하시고, 런칭 시 한정판 웰컴 패키지 혜택을 받아보세요.</p> <!--[cite: 1] -->
+        <br><br>
+        <h3 style="color: var(--emerald-green); font-size: 2rem;">한 번 와도, 혼자 와도 우리 사람</h3> <!--[cite: 1, 2] -->
+        <p style="font-size: 1.05rem; margin-top: 10px;">지금 사전 설문조사에 참여하시고, 런칭 시 한정판 웰컴 패키지 혜택을 받아보세요.</p> <!--[cite: 1] -->
         
-        <!-- 이전에 작성한 구글 폼 링크를 연동하는 버튼 -->
         <a href="#" class="cta-button" onclick="alert('사전 설문조사 구글 폼으로 이동합니다.')">사전 설문조사 참여하기</a>
     </section>
 
     <script>
-        // 트랙 전환 인터랙티브 자바스크립트
         function showTrack(track) {
-            // 버튼 상태 초기화
             document.querySelectorAll('.track-btn').forEach(btn => btn.classList.remove('active'));
-            // 콘텐츠 상태 초기화
             document.querySelectorAll('.track-content').forEach(content => content.classList.remove('active'));
             
             if(track === 'A') {
