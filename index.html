@@ -4,31 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ONCE, ONE'S 런칭 홍보 기획서</title>
+    <!-- MZ 세대 감성의 힙하고 굵은 볼드 고딕 폰트 적용 (Gothic A1 & Noto Sans KR) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@700;800;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
     
     <style>
-        /* 브랜드 톤앤매너 및 기본 설정[cite: 1] */
+        /* 브랜드 톤앤매너 및 기본 설정 */
         :root {
             --emerald-green: #044A3A;
             --champagne-gold: #D4AF37;
-            --dark-wood: #2C1E16;
-            --light-bg: #F4F4F4;
+            --dark-wood: #1E1714;
+            --light-bg: #F0F2F1;
             --white: #FFFFFF;
         }
 
         body {
             margin: 0;
-            font-family: 'Noto Sans KR', sans-serif;
-            color: #333;
+            font-family: 'Noto Sans KR', 'Gothic A1', sans-serif;
+            color: #222;
             background-color: var(--light-bg);
             line-height: 1.6;
+            letter-spacing: -0.5px;
         }
 
+        /* 힙하고 세련된 볼드 고딕 타이포그래피 */
         h1, h2, h3, h4 {
-            font-family: 'Noto Serif KR', serif;
-            font-weight: 700;
+            font-family: 'Gothic A1', 'Noto Sans KR', sans-serif;
+            font-weight: 900;
+            letter-spacing: -1px;
         }
 
         .section {
@@ -43,27 +47,29 @@
             color: var(--champagne-gold);
             padding: 100px 20px;
             text-align: center;
-            border-bottom: 5px solid var(--champagne-gold);
+            border-bottom: 6px solid var(--champagne-gold);
         }
 
         header h1 {
-            font-size: 3rem;
+            font-size: 3.2rem;
             margin-bottom: 15px;
-            letter-spacing: -1px;
+            line-height: 1.25;
+            font-weight: 900;
         }
 
         header p {
-            font-size: 1.2rem;
-            font-weight: 300;
+            font-size: 1.25rem;
+            font-weight: 500;
             color: var(--white);
-            opacity: 0.9;
+            opacity: 0.95;
         }
 
         .doc-meta {
             margin-top: 40px;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+            font-weight: 700;
             color: var(--champagne-gold);
-            border-top: 1px solid rgba(212, 175, 55, 0.3);
+            border-top: 1px solid rgba(212, 175, 55, 0.4);
             padding-top: 20px;
             display: inline-block;
         }
@@ -72,15 +78,15 @@
         .concept-wrap {
             background-color: var(--white);
             padding: 50px;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
         }
 
         .concept-wrap h2 {
             color: var(--emerald-green);
             font-size: 2.2rem;
-            border-bottom: 2px solid var(--champagne-gold);
-            padding-bottom: 10px;
+            border-bottom: 3px solid var(--champagne-gold);
+            padding-bottom: 12px;
             margin-bottom: 30px;
         }
 
@@ -94,12 +100,19 @@
             color: var(--dark-wood);
             font-size: 1.4rem;
             margin-bottom: 15px;
+            font-weight: 800;
         }
 
-        /* 2. 카드뉴스 섹션[cite: 1] */
+        .concept-box p {
+            font-size: 1.05rem;
+            color: #444;
+        }
+
+        /* 2. 카드뉴스 섹션 */
         .cardnews-section {
             background-color: var(--dark-wood);
             color: var(--white);
+            border-radius: 20px;
         }
 
         .cardnews-section h2 {
@@ -111,32 +124,34 @@
 
         .card-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 20px;
         }
 
         .card-item {
-            background-color: #3D2D23;
-            border: 1px solid var(--champagne-gold);
-            border-radius: 8px;
+            background-color: #2A201A;
+            border: 2px solid var(--champagne-gold);
+            border-radius: 14px;
             padding: 30px 20px;
             text-align: center;
-            transition: transform 0.3s;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .card-item:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(212, 175, 55, 0.2);
         }
 
         .card-item h4 {
             color: var(--champagne-gold);
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             margin-bottom: 15px;
         }
 
-        /* 3. 60초 쇼츠 기획 섹션 (동영상 포함)[cite: 3] */
+        /* 3. 60초 쇼츠 기획 섹션 */
         .shorts-section {
             background-color: var(--white);
+            border-radius: 20px;
         }
         
         .shorts-section h2 {
@@ -154,7 +169,7 @@
             gap: 50px;
         }
 
-        /* 📱 스마트폰 목업 CSS 적용 */
+        /* 스마트폰 목업 */
         .smartphone-mockup {
             position: relative;
             width: 280px;
@@ -162,7 +177,7 @@
             border: 12px solid #1a1a1a;
             border-radius: 40px;
             background-color: #000;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 0 0 0 2px var(--champagne-gold);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3), 0 0 0 2px var(--champagne-gold);
             overflow: hidden;
             flex-shrink: 0;
         }
@@ -191,14 +206,22 @@
             flex: 1;
             min-width: 300px;
             background-color: var(--light-bg);
-            padding: 30px;
-            border-radius: 10px;
-            border-left: 5px solid var(--champagne-gold);
+            padding: 35px;
+            border-radius: 16px;
+            border-left: 6px solid var(--champagne-gold);
+        }
+
+        .storyboard h3 {
+            font-size: 1.5rem;
+            color: var(--emerald-green);
+            margin-top: 0;
+            margin-bottom: 20px;
         }
 
         .storyboard ul {
             list-style: none;
             padding: 0;
+            margin: 0;
         }
 
         .storyboard li {
@@ -209,17 +232,18 @@
             display: inline-block;
             background-color: var(--emerald-green);
             color: var(--champagne-gold);
-            padding: 3px 10px;
-            border-radius: 15px;
+            padding: 4px 12px;
+            border-radius: 20px;
             font-size: 0.85rem;
-            font-weight: bold;
-            margin-bottom: 5px;
+            font-weight: 800;
+            margin-bottom: 8px;
         }
 
-        /* 4. 오픈 로드맵 섹션[cite: 1] */
+        /* 4. 오픈 로드맵 섹션 */
         .roadmap-section {
             background-color: var(--emerald-green);
             color: var(--white);
+            border-radius: 20px;
         }
 
         .roadmap-section h2 {
@@ -238,26 +262,28 @@
         }
 
         .timeline-item {
-            background-color: rgba(255,255,255,0.05);
-            border: 1px solid rgba(212, 175, 55, 0.5);
+            background-color: rgba(255,255,255,0.07);
+            border: 1px solid rgba(212, 175, 55, 0.6);
             padding: 30px;
-            border-radius: 8px;
-            position: relative;
+            border-radius: 12px;
         }
 
         .timeline-item h3 {
             color: var(--champagne-gold);
+            font-size: 1.4rem;
             margin-top: 0;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .timeline-item ul {
             margin: 0;
             padding-left: 20px;
-            line-height: 1.8;
+            line-height: 1.9;
+            font-weight: 400;
         }
 
         @media (max-width: 768px) {
+            header h1 { font-size: 2.2rem; }
             .concept-grid { grid-template-columns: 1fr; }
             .shorts-container { flex-direction: column; }
         }
@@ -268,10 +294,10 @@
     <!-- 헤더: 기획서 표지 -->
     <header>
         <h1>ONCE, ONE'S 런칭 홍보 기획서</h1>
-        <p>1인 전용 럭셔리 호캉스 브랜드 'ONCE, ONE'S BY JOSUN HOTEL' 캠페인 전략</p> <!--[cite: 1] -->
+        <p>1인 전용 럭셔리 호캉스 브랜드 'ONCE, ONE'S BY JOSUN HOTEL' 캠페인 전략</p>
         <div class="doc-meta">
-            문서번호: PR-2026-JH09 | 프로젝트명: ONCE, ONE'S BY JOSUN HOTEL<br> <!--[cite: 1] -->
-            기획/발행: Future Dream Academy x 조선호텔 <!--[cite: 1] -->
+            문서번호: PR-2026-JH09 | 프로젝트명: ONCE, ONE'S BY JOSUN HOTEL<br>
+            기획/발행: Future Dream Academy x 조선호텔
         </div>
     </header>
 
@@ -282,13 +308,13 @@
             <div class="concept-grid">
                 <div class="concept-box">
                     <h3>■ 추진 배경 및 타깃 인사이트</h3>
-                    <p>1인 가구 1,000만 시대 진입 및 2030 세대의 자발적 솔로 럭셔리(Solo Luxury) 소비 확산에 발맞추어 신규 브랜드를 런칭합니다.</p> <!--[cite: 1] -->
-                    <p>기존 특급호텔 패키지가 '2인 기준'으로 설계되어 1인 투숙객의 비용 비효율이 발생하며, 라운지 이용 시 타인의 시선에 따른 심리적 피로감이 존재합니다.</p> <!--[cite: 1] -->
+                    <p>1인 가구 1,000만 시대 진입 및 2030 세대의 자발적 솔로 럭셔리(Solo Luxury) 소비 확산에 발맞추어 신규 브랜드를 런칭합니다.</p>
+                    <p>기존 특급호텔 패키지가 '2인 기준'으로 설계되어 1인 투숙객의 비용 비효율이 발생하며, 라운지 이용 시 타인의 시선에 따른 심리적 피로감이 존재합니다.</p>
                 </div>
                 <div class="concept-box">
                     <h3>■ 핵심 솔루션 가치</h3>
-                    <p><strong>1. 듀얼 트랙 시스템 (Dual-Track)</strong><br>완벽한 사적 휴식을 보장하는 Track A와 취향 기반의 느슨한 연대를 선사하는 Track B를 제공합니다.</p> <!--[cite: 1] -->
-                    <p><strong>2. 원스톱 AI 컨시어지 (JOSUN ONE'S App)</strong><br>예약부터 룸서비스 페어링까지 탐색 피로도를 제로(0)로 실현하는 스마트 큐레이션을 제공합니다.</p> <!--[cite: 1] -->
+                    <p><strong>1. 듀얼 트랙 시스템 (Dual-Track)</strong><br>완벽한 사적 휴식을 보장하는 Track A와 취향 기반의 느슨한 연대를 선사하는 Track B를 제공합니다.</p>
+                    <p><strong>2. 원스톱 AI 컨시어지 (JOSUN ONE'S App)</strong><br>예약부터 룸서비스 페어링까지 탐색 피로도를 제로(0)로 실현하는 스마트 큐레이션을 제공합니다.</p>
                 </div>
             </div>
         </div>
@@ -296,39 +322,38 @@
 
     <!-- 2. 카드뉴스 기획 -->
     <div class="section cardnews-section">
-        <h2>02. 인스타그램 4-Cut 카드뉴스 기획</h2> <!--[cite: 1] -->
+        <h2>02. 인스타그램 4-Cut 카드뉴스 기획</h2>
         <div class="card-grid">
             <div class="card-item">
-                <h4>Card 1. 후킹 커버</h4> <!--[cite: 1] -->
-                <p><strong>"혼자인데, 이렇게 대접받아도 되나요?"</strong></p> <!--[cite: 1] -->
-                <p style="font-size: 0.9em; opacity: 0.8;">오직 한 사람만을 위한 5성급 럭셔리 케어</p> <!--[cite: 1] -->
+                <h4>Card 1. 후킹 커버</h4>
+                <p><strong>"혼자인데, 이렇게 대접받아도 되나요?"</strong></p>
+                <p style="font-size: 0.9em; opacity: 0.85;">오직 한 사람만을 위한 5성급 럭셔리 케어</p>
             </div>
             <div class="card-item">
-                <h4>Card 2. Track A</h4> <!--[cite: 1] -->
-                <p><strong>COMPLETE PRIVACY</strong></p> <!--[cite: 1] -->
-                <p style="font-size: 0.9em; opacity: 0.8;">눈치 볼 필요 없이 완벽하게 누리는 1인 럭셔리<br>(프라이빗 디너 + 인룸 다이닝)</p> <!--[cite: 1] -->
+                <h4>Card 2. Track A</h4>
+                <p><strong>COMPLETE PRIVACY</strong></p>
+                <p style="font-size: 0.9em; opacity: 0.85;">눈치 볼 필요 없이 완벽하게 누리는 1인 럭셔리<br>(프라이빗 디너 + 인룸 다이닝)</p>
             </div>
             <div class="card-item">
-                <h4>Card 3. Track B</h4> <!--[cite: 1] -->
-                <p><strong>SOFT CONNECTION</strong></p> <!--[cite: 1] -->
-                <p style="font-size: 0.9em; opacity: 0.8;">어색한 대화 없는 고품격 취향 살롱<br>(소셜 다이닝 + 와인 클래스)</p> <!--[cite: 1] -->
+                <h4>Card 3. Track B</h4>
+                <p><strong>SOFT CONNECTION</strong></p>
+                <p style="font-size: 0.9em; opacity: 0.85;">어색한 대화 없는 고품격 취향 살롱<br>(소셜 다이닝 + 와인 클래스)</p>
             </div>
             <div class="card-item">
-                <h4>Card 4. 클로징 & CTA</h4> <!--[cite: 1] -->
-                <p><strong>한 번 와도, 혼자 와도 우리 사람</strong></p> <!--[cite: 1] -->
-                <p style="font-size: 0.9em; opacity: 0.8;">JOSUN ONE'S 앱 사전예약 및 웰컴 혜택 안내</p> <!--[cite: 1] -->
+                <h4>Card 4. 클로징 & CTA</h4>
+                <p><strong>한 번 와도, 혼자 와도 우리 사람</strong></p>
+                <p style="font-size: 0.9em; opacity: 0.85;">JOSUN ONE'S 앱 사전예약 및 웰컴 혜택 안내</p>
             </div>
         </div>
     </div>
 
-    <!-- 3. 60초 쇼츠 기획 (동영상 이동됨) -->
+    <!-- 3. 60초 쇼츠 기획 -->
     <div class="section shorts-section">
-        <h2>03. 60초 숏폼(Shorts) 캠페인 기획</h2> <!--[cite: 1, 3] -->
+        <h2>03. 60초 숏폼(Shorts) 캠페인 기획</h2>
         <div class="shorts-container">
-            <!-- 📱 폰 안에 들어간 동영상 목업 재생 -->
+            <!-- 📱 스마트폰 목업 내 동영상 자동 재생 -->
             <div class="smartphone-mockup">
                 <div class="notch"></div>
-                <!-- 동일한 폴더 내에 있는 '3조 원스.mp4' 파일을 불러와 자동 재생[cite: 3] -->
                 <video src="3조 원스.mp4" autoplay loop muted playsinline></video>
             </div>
             
@@ -337,23 +362,23 @@
                 <ul>
                     <li>
                         <span class="time">00s - 15s : 공감대 형성</span><br>
-                        <strong>"혼자 호텔 가면 겪는 흔한 현실"</strong><br> <!--[cite: 3] -->
-                        나만 빼고 다 커플. 라운지에서 혼자 밥 먹으며 눈치 보는 모습, 검색과 비교로 지친 화면 교차. "귀찮은 건 딱 질색이니까." <!--[cite: 2, 3] -->
+                        <strong>"혼자 호텔 가면 겪는 흔한 현실"</strong><br>
+                        나만 빼고 다 커플. 라운지에서 혼자 밥 먹으며 눈치 보는 모습, 검색과 비교로 지친 화면 교차. "귀찮은 건 딱 질색이니까."
                     </li>
                     <li>
                         <span class="time">15s - 30s : 솔루션 제시</span><br>
-                        <strong>"귀찮은 건 호텔이 다 해줄게, 넌 즐기기만 해"</strong><br> <!--[cite: 1] -->
-                        JOSUN ONE'S 앱 화면 등장. 터치 한 번으로 나의 휴식 스타일(Track A/B)을 선택하는 UI 연출. <!--[cite: 1] -->
+                        <strong>"귀찮은 건 호텔이 다 해줄게, 넌 즐기기만 해"</strong><br>
+                        JOSUN ONE'S 앱 화면 등장. 터치 한 번으로 나의 휴식 스타일(Track A/B)을 선택하는 UI 연출.
                     </li>
                     <li>
                         <span class="time">30s - 50s : 서비스 시연</span><br>
-                        <strong>"당신의 마음은 어떤가요?"</strong><br> <!--[cite: 2] -->
-                        화면 분할 ─ [좌] 프라이빗 라운지에서의 완벽한 고독(Track A) / [우] 취향이 맞는 사람들과의 와인 테이스팅(Track B) <!--[cite: 1, 2] -->
+                        <strong>"당신의 마음은 어떤가요?"</strong><br>
+                        화면 분할 ─ [좌] 프라이빗 라운지에서의 완벽한 고독(Track A) / [우] 취향이 맞는 사람들과의 와인 테이스팅(Track B)
                     </li>
                     <li>
                         <span class="time">50s - 60s : 아웃트로 & CTA</span><br>
-                        <strong>"바쁜 일상, 나에게, 쉼을."</strong><br> <!--[cite: 3] -->
-                        ONCE, ONE'S BY JOSUN HOTEL 로고 등장 및 사전예약 웰컴 패키지 혜택 자막 안내. <!--[cite: 1] -->
+                        <strong>"바쁜 일상, 나에게, 쉼을."</strong><br>
+                        ONCE, ONE'S BY JOSUN HOTEL 로고 등장 및 사전예약 웰컴 패키지 혜택 자막 안내.
                     </li>
                 </ul>
             </div>
@@ -362,28 +387,28 @@
 
     <!-- 4. 오픈 로드맵 기획 -->
     <div class="section roadmap-section">
-        <h2>04. 런칭 캠페인 오픈 로드맵</h2> <!--[cite: 1] -->
+        <h2>04. 런칭 캠페인 오픈 로드맵</h2>
         <div class="timeline">
             <div class="timeline-item">
-                <h3>Phase 1 : Pre-launch (D-30 ~ D-1)</h3> <!--[cite: 1] -->
+                <h3>Phase 1 : Pre-launch (D-30 ~ D-1)</h3>
                 <ul>
-                    <li>타이저 콘텐츠(숏폼, 인스타그램 4컷 카드뉴스) 업로드[cite: 1]</li>
-                    <li>구글 폼을 통한 고객 취향(페르소나) 사전 설문조사 진행[cite: 1]</li>
-                    <li>'JOSUN ONE'S' 앱 사전 예약 시 웰컴 패키지 추첨 이벤트[cite: 1]</li>
+                    <li>티저 콘텐츠(숏폼, 인스타그램 4컷 카드뉴스) 업로드</li>
+                    <li>구글 폼을 통한 고객 취향(페르소나) 사전 설문조사 진행</li>
+                    <li>'JOSUN ONE'S' 앱 사전 예약 시 웰컴 패키지 추첨 이벤트</li>
                 </ul>
             </div>
             <div class="timeline-item">
-                <h3>Phase 2 : D-Day (Launching)</h3> <!--[cite: 1] -->
+                <h3>Phase 2 : D-Day (Launching)</h3>
                 <ul>
-                    <li>ONCE, ONE'S 팝업 라운지 (오프라인) 오픈 및 인플루언서 초청[cite: 1]</li>
-                    <li>'JOSUN ONE'S' 모바일 앱 정식 배포[cite: 1]</li>
+                    <li>ONCE, ONE'S 팝업 라운지 (오프라인) 오픈 및 인플루언서 초청</li>
+                    <li>'JOSUN ONE'S' 모바일 앱 정식 배포</li>
                 </ul>
             </div>
             <div class="timeline-item">
-                <h3>Phase 3 : Post-launch (D+1 ~ D+30)</h3> <!--[cite: 1] -->
+                <h3>Phase 3 : Post-launch (D+1 ~ D+30)</h3>
                 <ul>
-                    <li>사전 설문조사 참여자 대상 웰컴 키트(바우처, 시그니처 굿즈) 발송[cite: 1]</li>
-                    <li>이용 후기(UGC) 바이럴 마케팅 및 앱 리뷰 프로모션 진행[cite: 1]</li>
+                    <li>사전 설문조사 참여자 대상 웰컴 키트(바우처, 시그니처 굿즈) 발송</li>
+                    <li>이용 후기(UGC) 바이럴 마케팅 및 앱 리뷰 프로모션 진행</li>
                 </ul>
             </div>
         </div>
