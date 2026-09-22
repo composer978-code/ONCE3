@@ -41,7 +41,7 @@
             margin: 0 auto;
         }
 
-        /* 헤더 섹션 (보고서 표지 콘셉트) */
+        /* 헤더 섹션 */
         header {
             background-color: var(--emerald-green);
             color: var(--champagne-gold);
@@ -54,7 +54,6 @@
             font-size: 3.2rem;
             margin-bottom: 15px;
             line-height: 1.25;
-            font-weight: 900;
         }
 
         header p {
@@ -100,7 +99,6 @@
             color: var(--dark-wood);
             font-size: 1.4rem;
             margin-bottom: 15px;
-            font-weight: 800;
         }
 
         .concept-box p {
@@ -169,17 +167,20 @@
             gap: 50px;
         }
 
-        /* 스마트폰 목업 */
+        /* =========================================
+           📱 유튜브 쇼츠 스타일 스마트폰 목업 및 UI
+           ========================================= */
         .smartphone-mockup {
             position: relative;
-            width: 280px;
-            height: 560px;
-            border: 12px solid #1a1a1a;
+            width: 300px;
+            height: 600px;
+            border: 14px solid #1a1a1a;
             border-radius: 40px;
             background-color: #000;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3), 0 0 0 2px var(--champagne-gold);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 0 0 0 2px var(--champagne-gold);
             overflow: hidden;
             flex-shrink: 0;
+            font-family: 'Noto Sans KR', sans-serif;
         }
 
         .smartphone-mockup .notch {
@@ -192,7 +193,7 @@
             background-color: #1a1a1a;
             border-bottom-left-radius: 16px;
             border-bottom-right-radius: 16px;
-            z-index: 10;
+            z-index: 20;
         }
 
         .smartphone-mockup video {
@@ -200,7 +201,205 @@
             height: 100%;
             object-fit: cover;
             display: block;
+            cursor: pointer;
         }
+
+        /* 쇼츠 오버레이 UI 컨테이너 */
+        .shorts-ui {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; /* 클릭 이벤트는 하위 버튼만 받도록 설정 */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            z-index: 10;
+        }
+
+        /* 하단 그라데이션 음영 (텍스트 가독성) */
+        .shorts-gradient {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40%;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+            z-index: 1;
+        }
+
+        /* 상단 음소거 토글 버튼 */
+        .top-controls {
+            position: absolute;
+            top: 40px;
+            right: 15px;
+            pointer-events: auto;
+            z-index: 15;
+        }
+
+        .mute-btn {
+            background: rgba(0,0,0,0.5);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+            transition: 0.2s;
+        }
+        
+        .mute-btn:active {
+            transform: scale(0.9);
+        }
+
+        /* 우측 상호작용 버튼 (좋아요, 댓글 등) */
+        .shorts-right-bar {
+            position: absolute;
+            right: 12px;
+            bottom: 80px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            pointer-events: auto;
+            z-index: 15;
+            align-items: center;
+        }
+
+        .action-btn {
+            background: none;
+            border: none;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+        }
+
+        .action-btn .icon {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            transition: transform 0.2s;
+        }
+
+        .action-btn:active .icon {
+            transform: scale(0.8);
+        }
+
+        .action-btn .count {
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* 좌측 하단 정보 (프로필, 제목, 음악) */
+        .shorts-bottom-info {
+            position: absolute;
+            left: 15px;
+            bottom: 20px;
+            width: calc(100% - 80px);
+            pointer-events: auto;
+            z-index: 15;
+            color: white;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .avatar {
+            width: 32px;
+            height: 32px;
+            background-color: var(--champagne-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--emerald-green);
+            font-size: 0.9rem;
+        }
+
+        .username {
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .subscribe-btn {
+            background-color: white;
+            color: black;
+            border: none;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            cursor: pointer;
+        }
+
+        .video-title {
+            font-size: 0.9rem;
+            font-weight: 400;
+            margin-bottom: 8px;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .music-info {
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .music-info span {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* 플레이/퍼즈 애니메이션 아이콘 */
+        .play-pause-indicator {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0,0,0,0.6);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            z-index: 10;
+        }
+
+        .play-pause-indicator.show {
+            opacity: 1;
+            animation: fadeOut 1s forwards;
+        }
+
+        @keyframes fadeOut {
+            0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+            100% { opacity: 0; transform: translate(-50%, -50%) scale(1.5); }
+        }
+        /* ========================================= */
 
         .storyboard {
             flex: 1;
@@ -279,19 +478,11 @@
             margin: 0;
             padding-left: 20px;
             line-height: 1.9;
-            font-weight: 400;
-        }
-
-        @media (max-width: 768px) {
-            header h1 { font-size: 2.2rem; }
-            .concept-grid { grid-template-columns: 1fr; }
-            .shorts-container { flex-direction: column; }
         }
     </style>
 </head>
 <body>
 
-    <!-- 헤더: 기획서 표지 -->
     <header>
         <h1>ONCE, ONE'S 런칭 홍보 기획서</h1>
         <p>1인 전용 럭셔리 호캉스 브랜드 'ONCE, ONE'S BY JOSUN HOTEL' 캠페인 전략</p>
@@ -301,14 +492,13 @@
         </div>
     </header>
 
-    <!-- 1. 기획 컨셉 -->
     <div class="section">
         <div class="concept-wrap">
             <h2>01. 기획 컨셉 (Executive Summary)</h2>
             <div class="concept-grid">
                 <div class="concept-box">
                     <h3>■ 추진 배경 및 타깃 인사이트</h3>
-                    <p>1인 가구 1,000만 시대 진입 및 2030 세대의 자발적 솔로 럭셔리(Solo Luxury) 소비 확산에 발맞추어 신규 브랜드를 런칭합니다.</p>
+                    <p>1인 가구 1,000만 시대 진입 및 2030 세대의 자발적 솔로 럭셔리 소비 확산에 발맞추어 신규 브랜드를 런칭합니다.</p>
                     <p>기존 특급호텔 패키지가 '2인 기준'으로 설계되어 1인 투숙객의 비용 비효율이 발생하며, 라운지 이용 시 타인의 시선에 따른 심리적 피로감이 존재합니다.</p>
                 </div>
                 <div class="concept-box">
@@ -320,7 +510,6 @@
         </div>
     </div>
 
-    <!-- 2. 카드뉴스 기획 -->
     <div class="section cardnews-section">
         <h2>02. 인스타그램 4-Cut 카드뉴스 기획</h2>
         <div class="card-grid">
@@ -332,12 +521,12 @@
             <div class="card-item">
                 <h4>Card 2. Track A</h4>
                 <p><strong>COMPLETE PRIVACY</strong></p>
-                <p style="font-size: 0.9em; opacity: 0.85;">눈치 볼 필요 없이 완벽하게 누리는 1인 럭셔리<br>(프라이빗 디너 + 인룸 다이닝)</p>
+                <p style="font-size: 0.9em; opacity: 0.85;">눈치 볼 필요 없이 완벽하게 누리는 1인 럭셔리</p>
             </div>
             <div class="card-item">
                 <h4>Card 3. Track B</h4>
                 <p><strong>SOFT CONNECTION</strong></p>
-                <p style="font-size: 0.9em; opacity: 0.85;">어색한 대화 없는 고품격 취향 살롱<br>(소셜 다이닝 + 와인 클래스)</p>
+                <p style="font-size: 0.9em; opacity: 0.85;">어색한 대화 없는 고품격 취향 살롱</p>
             </div>
             <div class="card-item">
                 <h4>Card 4. 클로징 & CTA</h4>
@@ -347,14 +536,61 @@
         </div>
     </div>
 
-    <!-- 3. 60초 쇼츠 기획 -->
     <div class="section shorts-section">
         <h2>03. 60초 숏폼(Shorts) 캠페인 기획</h2>
         <div class="shorts-container">
-            <!-- 📱 스마트폰 목업 내 동영상 자동 재생 -->
+            
+            <!-- 📱 유튜브 쇼츠 스타일 스마트폰 목업 -->
             <div class="smartphone-mockup">
                 <div class="notch"></div>
-                <video src="3조 원스.mp4" autoplay loop muted playsinline></video>
+                <!-- 오디오 정책상 처음에는 muted 상태로 자동 재생 시작 (사용자가 버튼으로 해제) -->
+                <video id="shortsVideo" src="3조 원스.mp4" autoplay loop muted playsinline></video>
+                
+                <!-- 재생/일시정지 표시 아이콘 -->
+                <div id="playIndicator" class="play-pause-indicator">⏸️</div>
+
+                <div class="shorts-ui">
+                    <div class="shorts-gradient"></div>
+                    
+                    <!-- 음소거 토글 버튼 -->
+                    <div class="top-controls">
+                        <button id="muteToggle" class="mute-btn">🔇</button>
+                    </div>
+
+                    <!-- 우측 상호작용 아이콘 -->
+                    <div class="shorts-right-bar">
+                        <button class="action-btn">
+                            <span class="icon">🤍</span>
+                            <span class="count">1.2만</span>
+                        </button>
+                        <button class="action-btn">
+                            <span class="icon">💬</span>
+                            <span class="count">342</span>
+                        </button>
+                        <button class="action-btn">
+                            <span class="icon">🔖</span>
+                            <span class="count">저장</span>
+                        </button>
+                        <button class="action-btn">
+                            <span class="icon">↗️</span>
+                            <span class="count">공유</span>
+                        </button>
+                    </div>
+
+                    <!-- 하단 비디오 정보 -->
+                    <div class="shorts-bottom-info">
+                        <div class="user-profile">
+                            <div class="avatar">J</div>
+                            <span class="username">@josun_ones</span>
+                            <button class="subscribe-btn">구독</button>
+                        </div>
+                        <div class="video-title">혼자 호텔 가면 겪는 흔한 현실 🏨 오직 1인을 위한 럭셔리 케어 #원스 #호캉스</div>
+                        <div class="music-info">
+                            <span>🎵</span>
+                            <span>ONCE, ONE'S Original Sound - JOSUN HOTEL</span>
+                        </div>
+                    </div>
+                </div>
             </div>
             
             <div class="storyboard">
@@ -363,29 +599,28 @@
                     <li>
                         <span class="time">00s - 15s : 공감대 형성</span><br>
                         <strong>"혼자 호텔 가면 겪는 흔한 현실"</strong><br>
-                        나만 빼고 다 커플. 라운지에서 혼자 밥 먹으며 눈치 보는 모습, 검색과 비교로 지친 화면 교차. "귀찮은 건 딱 질색이니까."
+                        나만 빼고 다 커플. 혼자 밥 먹으며 눈치 보는 모습, 검색으로 지친 화면 교차.
                     </li>
                     <li>
                         <span class="time">15s - 30s : 솔루션 제시</span><br>
                         <strong>"귀찮은 건 호텔이 다 해줄게, 넌 즐기기만 해"</strong><br>
-                        JOSUN ONE'S 앱 화면 등장. 터치 한 번으로 나의 휴식 스타일(Track A/B)을 선택하는 UI 연출.
+                        JOSUN ONE'S 앱 등장. 나의 휴식 스타일을 선택하는 트렌디한 UI 연출.
                     </li>
                     <li>
                         <span class="time">30s - 50s : 서비스 시연</span><br>
                         <strong>"당신의 마음은 어떤가요?"</strong><br>
-                        화면 분할 ─ [좌] 프라이빗 라운지에서의 완벽한 고독(Track A) / [우] 취향이 맞는 사람들과의 와인 테이스팅(Track B)
+                        화면 분할 ─ [좌] 완벽한 프라이빗 라운지 / [우] 취향이 맞는 소셜 와인 다이닝
                     </li>
                     <li>
                         <span class="time">50s - 60s : 아웃트로 & CTA</span><br>
                         <strong>"바쁜 일상, 나에게, 쉼을."</strong><br>
-                        ONCE, ONE'S BY JOSUN HOTEL 로고 등장 및 사전예약 웰컴 패키지 혜택 자막 안내.
+                        ONCE, ONE'S 로고 등장 및 웰컴 패키지 혜택 자막 안내.
                     </li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <!-- 4. 오픈 로드맵 기획 -->
     <div class="section roadmap-section">
         <h2>04. 런칭 캠페인 오픈 로드맵</h2>
         <div class="timeline">
@@ -393,26 +628,76 @@
                 <h3>Phase 1 : Pre-launch (D-30 ~ D-1)</h3>
                 <ul>
                     <li>티저 콘텐츠(숏폼, 인스타그램 4컷 카드뉴스) 업로드</li>
-                    <li>구글 폼을 통한 고객 취향(페르소나) 사전 설문조사 진행</li>
-                    <li>'JOSUN ONE'S' 앱 사전 예약 시 웰컴 패키지 추첨 이벤트</li>
+                    <li>고객 취향(페르소나) 사전 설문조사 진행</li>
+                    <li>앱 사전 예약 시 웰컴 패키지 추첨 이벤트</li>
                 </ul>
             </div>
             <div class="timeline-item">
                 <h3>Phase 2 : D-Day (Launching)</h3>
                 <ul>
-                    <li>ONCE, ONE'S 팝업 라운지 (오프라인) 오픈 및 인플루언서 초청</li>
+                    <li>ONCE, ONE'S 팝업 라운지 오픈 및 인플루언서 초청</li>
                     <li>'JOSUN ONE'S' 모바일 앱 정식 배포</li>
                 </ul>
             </div>
             <div class="timeline-item">
                 <h3>Phase 3 : Post-launch (D+1 ~ D+30)</h3>
                 <ul>
-                    <li>사전 설문조사 참여자 대상 웰컴 키트(바우처, 시그니처 굿즈) 발송</li>
                     <li>이용 후기(UGC) 바이럴 마케팅 및 앱 리뷰 프로모션 진행</li>
                 </ul>
             </div>
         </div>
     </div>
 
+    <!-- 쇼츠 플레이어 작동을 위한 자바스크립트 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.getElementById('shortsVideo');
+            const muteToggle = document.getElementById('muteToggle');
+            const playIndicator = document.getElementById('playIndicator');
+            const actionBtnIcon = document.querySelector('.action-btn .icon'); // 좋아요 버튼
+
+            // 1. 음소거 설정/해제 기능
+            muteToggle.addEventListener('click', function(e) {
+                e.stopPropagation(); // 비디오 클릭(재생/일시정지) 이벤트와 겹치지 않게 방지
+                if (video.muted) {
+                    video.muted = false;
+                    muteToggle.textContent = '🔊';
+                } else {
+                    video.muted = true;
+                    muteToggle.textContent = '🔇';
+                }
+            });
+
+            // 2. 비디오 화면 탭 시 재생/일시정지 기능
+            video.addEventListener('click', function() {
+                if (video.paused) {
+                    video.play();
+                    showIndicator('▶️');
+                } else {
+                    video.pause();
+                    showIndicator('⏸️');
+                }
+            });
+
+            // 3. 좋아요(하트) 클릭 시 색상 변경 기능
+            actionBtnIcon.addEventListener('click', function(e) {
+                if(this.textContent === '🤍') {
+                    this.textContent = '❤️';
+                    this.style.color = '#ff2a2a';
+                } else {
+                    this.textContent = '🤍';
+                    this.style.color = 'white';
+                }
+            });
+
+            // 중앙 재생/일시정지 아이콘 애니메이션 함수
+            function showIndicator(icon) {
+                playIndicator.textContent = icon;
+                playIndicator.classList.remove('show');
+                void playIndicator.offsetWidth; // 애니메이션 리셋 트릭
+                playIndicator.classList.add('show');
+            }
+        });
+    </script>
 </body>
 </html>
