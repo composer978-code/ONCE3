@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로젝트 사전 설문조사</title>
+    
+    <!-- 폰트 로드: 원본 사이트와 동일한 Gothic A1, Noto Sans KR -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@700;800;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* 기본 다크 테마 설정 (원본 코드 참조) */
+        :root {
+            --bg-color: #121212;
+            --surface-color: #1E1E1E;
+            --text-main: #E0E0E0;
+            --text-muted: #A0A0A0;
+            --emerald-green: #056650;
+            --emerald-dark: #03362A;
+            --champagne-gold: #D4AF37;
+            --border-color: rgba(212, 175, 55, 0.2);
+            --nav-bg: rgba(18, 18, 18, 0.85);
+            --card-hover: rgba(212, 175, 55, 0.1);
+        }
+
+        /* 라이트 테마 설정 */
+        [data-theme="light"] {
+            --bg-color: #F4F5F5;
+            --surface-color: #FFFFFF;
+            --text-main: #1A1A1A;
+            --text-muted: #555555;
+            --emerald-green: #044A3A;
+            --emerald-dark: #03362A;
+            --champagne-gold: #B89020;
+            --border-color: rgba(4, 74, 58, 0.15);
+            --nav-bg: rgba(255, 255, 255, 0.9);
+            --card-hover: rgba(4, 74, 58, 0.05);
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Noto Sans KR', 'Gothic A1', sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-color);
+            line-height: 1.6;
+            letter-spacing: -0.5px;
+            padding-top: 80px; /* 네비게이션 바 높이만큼 여백 */
+            transition: background-color 0.3s, color 0.3s;
+            scroll-behavior: smooth;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Gothic A1', 'Noto Sans KR', sans-serif;
+            font-weight: 900;
+            letter-spacing: -1px;
+            margin-top: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* 상단 고정 네비게이션 바 */
+        .top-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background: var(--nav-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            box-sizing: border-box;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            transition: background 0.3s, border-color 0.3s;
+        }
+
+        .nav-logo {
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: var(--champagne-gold);
+            letter-spacing: -1px;
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .theme-btn {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 8px 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 700;
+            font-family: 'Noto Sans KR', sans-serif;
+            transition: all 0.2s;
+        }
+
+        .theme-btn:hover {
+            background: var(--surface-color);
+            border-color: var(--champagne-gold);
+        }
+
+        .home-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+        }
+
+        /* 메인 콘텐츠 영역 */
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 60px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        header.survey-header {
+            text-align: center;
+            margin-bottom: 60px;
+            width: 100%;
+        }
+
+        header.survey-header h1 {
+            color: var(--champagne-gold);
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        header.survey-header p {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            margin-bottom: 0;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .survey-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        /* 카드뉴스(card-item)와 컨셉(concept-card) 스타일의 혼합 */
+        .survey-card {
+            background-color: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .survey-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px var(--card-hover);
+            border-color: var(--champagne-gold);
+            background-color: rgba(212, 175, 55, 0.05);
+        }
+
+        .card-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-number {
+            color: var(--emerald-green);
+            font-weight: 900;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        [data-theme="light"] .card-number {
+            color: var(--emerald-green);
+        }
+        
+        :root:not([data-theme="light"]) .card-number {
+            color: #4ade80; /* 다크모드에서 조금 더 밝은 초록색 */
+        }
+
+        .survey-card h2 {
+            color: var(--champagne-gold);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .survey-card p {
+            color: var(--text-main);
+            font-weight: 500;
+            font-size: 1.1rem;
+            margin: 0;
+        }
+
+        .card-icon {
+            color: var(--text-muted);
+            transition: color 0.3s, transform 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+        }
+
+        .survey-card:hover .card-icon {
+            color: var(--champagne-gold);
+            transform: translateX(5px);
+            border-color: var(--champagne-gold);
+        }
+
+        .card-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+            margin-top: auto;
+        }
+
+        /* 모바일 대응 */
+        @media (max-width: 768px) {
+            .top-nav {
+                padding: 0 20px;
+            }
+            .nav-logo {
+                font-size: 1.2rem;
+            }
+            header.survey-header h1 {
+                font-size: 2.2rem;
+            }
+            .survey-card {
+                padding: 30px 20px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+            .card-icon {
+                align-self: flex-end;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="top-nav">
+        <div class="nav-logo">PROJECT PRE-SURVEY</div>
+        <div class="nav-actions">
+            <a href="../index.html" class="theme-btn home-btn">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                </svg>
+                홈
+            </a>
+            <button id="themeToggle" class="theme-btn">☀️ 라이트 모드</button>
+        </div>
+    </nav>
+
+    <main>
+        <header class="survey-header">
+            <h1>프로젝트 사전 설문조사</h1>
+            <p>성공적인 프로젝트 진행을 위해 소중한 의견을 듣고자 합니다.<br>아래 카드 중 해당하는 설문을 클릭하여 참여해 주세요.</p>
+        </header>
+
+        <div class="survey-grid">
+            
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScgfQCfAF_j0QyQmUyLQct-iX9qQN9dKGKxZ7EDVOknHI6rhA/viewform?usp=dialog" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="survey-card">
+                
+                <div class="card-content">
+                    <span class="card-number">Survey 01</span>
+                    <h2>설문조사 파트 1</h2>
+                    <p>기본적인 정보 및 선호도 조사</p>
+                </div>
+                
+                <div class="card-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </div>
+            </a>
+
+            <a href="https://docs.google.com/forms/d/15Qf0pMjXK7NxXs65Zdd152ACePv8KMwZD9SOT5RvKeo/edit" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="survey-card">
+                
+                <div class="card-content">
+                    <span class="card-number">Survey 02</span>
+                    <h2>설문조사 파트 2</h2>
+                    <p>세부적인 의견 및 요구사항 작성</p>
+                </div>
+                
+                <div class="card-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </div>
+            </a>
+
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2026 Project Pre-Survey System. All rights reserved.
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 다크/라이트 모드 토글 기능 (원본 코드 유지)
+            const themeToggle = document.getElementById('themeToggle');
+            const rootElement = document.documentElement;
+            let isDarkMode = true; // 기본값 다크모드
+
+            themeToggle.addEventListener('click', () => {
+                isDarkMode = !isDarkMode;
+                if (isDarkMode) {
+                    rootElement.removeAttribute('data-theme');
+                    themeToggle.textContent = '☀️ 라이트 모드';
+                } else {
+                    rootElement.setAttribute('data-theme', 'light');
+                    themeToggle.textContent = '🌙 다크 모드';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
