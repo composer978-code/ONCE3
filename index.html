@@ -45,7 +45,7 @@
             background-color: var(--bg-color);
             line-height: 1.6;
             letter-spacing: -0.5px;
-            padding-top: 80px; /* 네비게이션 바 높이만큼 여백 */
+            padding-top: 80px;
             transition: background-color 0.3s, color 0.3s;
             scroll-behavior: smooth;
         }
@@ -601,11 +601,50 @@
             font-weight: 500;
         }
 
+        /* ✨ 플로팅 설문조사 버튼 스타일 ✨ */
+        .floating-survey-btn {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            background-color: var(--champagne-gold);
+            color: #121212;
+            padding: 16px 28px;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 999;
+            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+            font-family: 'Noto Sans KR', sans-serif;
+            text-decoration: none;
+        }
+
+        .floating-survey-btn:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.4);
+            background-color: #E5C354;
+        }
+
+        .floating-survey-btn .icon {
+            font-size: 1.4rem;
+        }
+
+        /* 모바일 반응형 처리 */
         @media (max-width: 900px) {
             .nav-links { display: none; }
             .concept-grid { grid-template-columns: 1fr; }
             header.hero h1 { font-size: 2.5rem; }
             .top-nav { padding: 0 20px; }
+            
+            .floating-survey-btn {
+                bottom: 25px;
+                right: 25px;
+                padding: 14px 22px;
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
@@ -693,7 +732,6 @@
         </div>
         <div class="shorts-container">
             
-            <!-- 📱 유튜브 쇼츠 스타일 스마트폰 목업 -->
             <div class="smartphone-mockup">
                 <div class="notch"></div>
                 <video id="shortsVideo" src="3조 원스.mp4" autoplay loop muted playsinline></video>
@@ -797,6 +835,12 @@
         </div>
     </section>
 
+    <!-- ✨ 플로팅 설문조사 버튼 ✨ -->
+    <a href="./01/web1.html" class="floating-survey-btn">
+        <span class="icon">📝</span>
+        <span>사전 설문조사 참여하기</span>
+    </a>
+
     <!-- 인터랙션 스크립트 -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -804,7 +848,7 @@
             // 1. 다크/라이트 모드 토글 기능
             const themeToggle = document.getElementById('themeToggle');
             const rootElement = document.documentElement;
-            let isDarkMode = true; // 기본값 다크모드
+            let isDarkMode = true;
 
             themeToggle.addEventListener('click', () => {
                 isDarkMode = !isDarkMode;
